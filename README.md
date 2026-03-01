@@ -60,6 +60,21 @@ This project can be executed in three ways, each of which has its dependencies:
 - make
 - pdflatex
 - probably other stuff for LaTeX
+4) Using Nix shell:
+- Nix package manager
+
+### Using Nix Shell
+If you have Nix installed, you can enter a development shell with all required dependencies:
+```/bin/bash
+nix-shell
+```
+
+This will provide you with:
+- make
+- pdflatex (full TeX Live distribution)
+- All required utilities (find, sed, cp, rm, mkdir)
+
+After entering the nix-shell, you can use all the standard make commands as described below.
 
 ## Build
 To generate a PDF, it is enough to run:
@@ -72,7 +87,8 @@ build the example PDF using the material inside ./example/ directory.
 
 ### Build with Docker
 If you don't want to have a dirty system, here are the
-build commands to use Docker :D
+build commands to use Docker (alternatively, you can use Nix shell as
+described in [Dependencies](#dependencies) for an isolated environment) :D
 1) To include all chapters
 ```/bin/bash
 make docker_build
